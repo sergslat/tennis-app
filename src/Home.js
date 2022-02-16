@@ -1,5 +1,4 @@
 import './App.css';
-import countryFilter from './countryFilter';
 const Home = () =>{
     return(
         <div>

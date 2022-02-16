@@ -1,4 +1,3 @@
-import './App.css';
 function CountryFilter ({setCountryStatus,countryStatus}) {
     const filterByCountry = (e) =>{
         setCountryStatus(e.target.value);

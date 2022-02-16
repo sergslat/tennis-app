@@ -78,5 +78,4 @@ function Players() {
     </div>
     );
 }
-
 export default Players;

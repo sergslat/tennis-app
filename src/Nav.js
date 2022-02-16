@@ -10,7 +10,7 @@ function Nav() {
   };
 
   return (
-    <nav className="navbar navbar-dark bg-dark">
+    <nav>
       <img src={mainLogo} alt="" className='logo'/>
       <ul className='nav-links'>
           <Link style={Navstyle} to = '/tournaments'>
