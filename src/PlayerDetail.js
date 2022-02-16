@@ -12,7 +12,7 @@ const PlayerDetail = () =>{
         "method": "GET",
 	    "headers": {
             "x-rapidapi-host": "tennis-live-data.p.rapidapi.com",
-    		"x-rapidapi-key": "509846e2b8mshc66da57461c96cdp1e460fjsn07af5f1f03fd"
+    		"x-rapidapi-key": process.env.REACT_APP_KEY
         }
     };
     const getPlayerData = async () => {

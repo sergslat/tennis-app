@@ -11,7 +11,7 @@ function Players() {
         "method": "GET",
 	    "headers": {
             "x-rapidapi-host": "tennis-live-data.p.rapidapi.com",
-    		"x-rapidapi-key": "509846e2b8mshc66da57461c96cdp1e460fjsn07af5f1f03fd"
+    		"x-rapidapi-key": process.env.REACT_APP_KEY
         }
     };
     const getData = async () =>{
@@ -24,6 +24,7 @@ function Players() {
     useEffect(() =>{
         getData();
     },[]);
+    // console.log(process.env.REACT_APP_KEY);
 
     // const top10 = data.slice(0,21);
     const top10 = data.filter(player => player.country === 'USA');
