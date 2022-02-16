@@ -1,10 +1,14 @@
 import './App.css';
 import {useState,useEffect} from 'react';
 import {Link} from 'react-router-dom';
+//Components
+import CountryFilter from './countryFilter';
 
 function Players() {
     //JS
     const [data,setData] = useState([]);
+    const [countryStatus, setCountryStatus] = useState('all');
+    const [filteredPlayers, setFilteredPlayers] = useState([]);
     
     const URL = 'https://tennis-live-data.p.rapidapi.com/rankings/ATP';
     const config = {
@@ -24,16 +28,39 @@ function Players() {
     useEffect(() =>{
         getData();
     },[]);
-    // console.log(process.env.REACT_APP_KEY);
-
-    // const top10 = data.slice(0,21);
-    const top10 = data.filter(player => player.country === 'USA');
     
+    const filterHandler = () => {
+        switch (countryStatus){
+            case 'all':
+                setFilteredPlayers (data.slice(0,10));
+                break;
+            case 'bolivia':
+                setFilteredPlayers(data.filter(player => player.country === 'Bolivia'));
+                break;
+            case 'USA':
+                setFilteredPlayers(data.filter(player => player.country === 'USA'));
+                break;
+            case 'argentina':
+                setFilteredPlayers(data.filter(player => player.country === 'Argentina'));
+                break;  
+            case 'australia':
+                setFilteredPlayers(data.filter(player => player.country === 'Australia'));
+                break;  
+            default:
+                setFilteredPlayers (data.slice(0,10));
+                break;
+        }
+    }
+    //const top10 = data.slice(0,10);
+    // const top10 = data.filter(player => player.country === 'USA');
+    useEffect(filterHandler,[countryStatus,data]);
     return (
+        
     <div className="container">
+        <CountryFilter countryStatus = {countryStatus} setCountryStatus = {setCountryStatus}/>
         <div className="row row-cols-3">
             {
-                top10.map(player =>(
+                filteredPlayers.map(player =>(
                     
                     <div key={player.id} className='col'>
                         <div className="card text-white bg-dark mb-3" style={{'maxWidth': '18rem'}}>
