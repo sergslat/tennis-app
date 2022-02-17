@@ -29,7 +29,7 @@ const PlayerDetail = () =>{
         <div>
             {
                 
-                <div>
+                <div className='whiteText'>
                     <h1>{data.full_name}</h1>
                     <h2>Country: {data.country}</h2>
                     <h2>Ranking: {data.ranking}</h2>
