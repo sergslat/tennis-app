@@ -22,3 +22,6 @@ nav {
   justify-content: space-around;
   align-items: center;
 }
+.whiteText{
+  color : white;
+}

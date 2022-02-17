@@ -53,9 +53,9 @@ function Tournaments() {
     <div className='container'>
       <CountryFilter countryStatus = {countryStatus} setCountryStatus = {setCountryStatus}/>
       <div className="container">
+        {filteredTournaments.length? `` : <h3 className='whiteText'>No tournaments found in {`${countryStatus}`}</h3>}
         <div className="row row-cols-3">
         {
-            
           filteredTournaments.map(tournament =>(
               
             

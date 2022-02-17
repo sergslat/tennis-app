@@ -1,4 +1,5 @@
 import './App.css';
+import background from './background.jpg';
 import Nav from './Nav';
 import Tournaments from './Tournaments';
 import Home from './Home';
@@ -10,7 +11,7 @@ import PlayerDetail from './PlayerDetail';
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App" style={{ backgroundImage: `url(${background})` }}>
         <Nav/>
         {/* Route should be wrapped inside <Routes>, use element instead of component, use full component name <Tournaments/>  */}
         <Routes> 
@@ -18,6 +19,7 @@ function App() {
           <Route path = '/tournaments' element={<Tournaments/>}/>
           <Route path = '/players' element={<Players/>}/>
           <Route path = '/players/:id' element={<PlayerDetail/>}/>
+          <Route path="*" element={<Players/>} />
         </Routes>
       </div>
     </Router>
