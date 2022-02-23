@@ -2,7 +2,7 @@ import './App.css';
 const Home = () =>{
     return(
         <div>
-            <h1>Home Page...</h1>
+            <h1 className='whiteText'>Home Page</h1>
         </div>
     )
     
